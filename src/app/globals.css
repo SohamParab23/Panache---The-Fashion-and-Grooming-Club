@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #141210; /* Very warm dark charcoal */
+  --color-foreground: #F5F1E7; /* Off-white with a warm tint */
+  
+  --color-card: #1A1815; /* Slightly lighter for elevated elements */
+  --color-card-foreground: #F5F1E7;
+
+  --color-accent: #D4AF37; /* Muted gold/bronze */
+  --color-accent-foreground: #141210;
+
+  --color-muted: #2A2622;
+  --color-muted-foreground: #A89F91;
+
+  --color-border: #332F2A;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    /* Improve font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(212, 175, 55, 0.3);
+    color: var(--color-foreground);
+  }
+}
+
+/* Custom utility for cinematic hide scrollbar if needed */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
