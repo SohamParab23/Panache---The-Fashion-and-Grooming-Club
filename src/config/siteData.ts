@@ -1,5 +1,6 @@
 export const SITE_DATA = {
   name: "PANACHE",
+  logo: "/images/logo.svg",
   tagline: "Fashion. Confidence. Expression.",
   missionStatement: "Style is not just what you wear. It is how you express who you are.",
   description: "PANACHE is the premier fashion and grooming club of MIT Arts, Commerce & Science College, Pune. We are a community where confidence meets creativity, dedicated to bringing out the true expression of every individual through runway presence, styling, and self-confidence.",
@@ -25,24 +26,59 @@ export const STATS = [
 export const EVENTS = [
   {
     id: 1,
-    title: "Annual Fashion Show",
-    date: "March 2026",
-    description: "Our flagship event showcasing bold student designs, striking looks, and polished runway presence.",
-    image: "/images/event-1.jpg"
+    title: "CRESCENDO",
+    location: "ISBM College",
+    description: "Secured 2nd runner up position at ISBM College.",
+    image: ""
   },
   {
     id: 2,
-    title: "Freshers' Runway",
-    date: "August 2025",
-    description: "A welcoming fashion walk that introduces new talent to the energy, confidence, and creativity of PANACHE.",
-    image: "/images/event-2.jpg"
+    title: "VISTA2K26",
+    location: "Sai Balaji University",
+    description: "Secured 1st runner up position at Sai Balaji University.",
+    image: ""
   },
   {
     id: 3,
-    title: "Grooming & Styling Workshop",
-    date: "November 2025",
-    description: "Hands-on sessions on personal styling, grooming, posture, and the confidence behind every look.",
-    image: "/images/event-3.jpg"
+    title: "FASHION EUPHORIA",
+    location: "Bharatiya Vidyapeeth College",
+    description: "Winner of solo and duet walk at Bharatiya Vidyapeeth College.",
+    image: ""
+  },
+  {
+    id: 4,
+    title: "GLITCH & GLAM",
+    location: "SIBM College",
+    description: "Secured 1st winner position at SIBM College.",
+    image: ""
+  },
+  {
+    id: 5,
+    title: "VOGUE",
+    location: "IIT Bombay",
+    description: "Secured 1st winner position at IIT Bombay.",
+    image: ""
+  },
+  {
+    id: 6,
+    title: "ASTITVA",
+    location: "BMCC College",
+    description: "Secured 2nd position in group fashion show, 3rd position in solo, and consolation position in solo at BMCC College.",
+    image: ""
+  },
+  {
+    id: 7,
+    title: "THE STYLE FASHION SYMPHONY",
+    location: "Pune",
+    description: "Muskan Sharma secured 1st runner up position in solo walk in Pune.",
+    image: ""
+  },
+  {
+    id: 8,
+    title: "FOREVER STAR INDIA",
+    location: "Jaipur",
+    description: "Pratiksha Naskar won the crown of FOREVER MISS MAHARASHTRA 2025 in Jaipur.",
+    image: ""
   }
 ];
 

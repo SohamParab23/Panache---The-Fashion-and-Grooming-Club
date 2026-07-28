@@ -26,9 +26,16 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
-            <h3 className="text-3xl font-serif font-bold text-foreground mb-4">
-              {SITE_DATA.name}
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src={SITE_DATA.logo}
+                alt="PANACHE Logo"
+                className="h-10 w-10 object-contain"
+              />
+              <h3 className="text-3xl font-serif font-bold text-foreground">
+                {SITE_DATA.name}
+              </h3>
+            </div>
             <p className="text-muted-foreground text-sm max-w-sm">
               {SITE_DATA.tagline}
             </p>

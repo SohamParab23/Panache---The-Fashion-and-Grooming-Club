@@ -21,7 +21,7 @@ export function Events() {
             The Calendar
           </h2>
           <h3 className="text-5xl md:text-7xl font-serif text-foreground">
-            Upcoming
+            Past Events
           </h3>
         </motion.div>
 
@@ -39,14 +39,14 @@ export function Events() {
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div className="flex-1">
-                  <span className="text-xs text-muted-foreground font-sans tracking-[0.2em] uppercase block mb-4">
-                    {event.date}
+                  <span className="text-xs text-accent font-sans tracking-[0.2em] uppercase block mb-3 font-medium">
+                    {event.location}
                   </span>
-                  <h4 className="text-3xl md:text-5xl font-serif text-foreground/80 group-hover:text-foreground group-hover:translate-x-4 transition-all duration-500">
+                  <h4 className="text-2xl md:text-4xl font-serif text-foreground/80 group-hover:text-foreground group-hover:translate-x-3 transition-all duration-500">
                     {event.title}
                   </h4>
                 </div>
-                <div className="flex-1 md:text-right max-w-md ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
+                <div className="flex-1 md:text-right max-w-xl ml-auto opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {event.description}
                   </p>
@@ -55,7 +55,7 @@ export function Events() {
 
               {/* Hover Image Reveal */}
               <AnimatePresence>
-                {hoveredEvent === event.id && (
+                {hoveredEvent === event.id && event.image && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95, clipPath: "inset(100% 0 0 0)" }}
                     animate={{ opacity: 1, scale: 1, clipPath: "inset(0 0 0 0)" }}

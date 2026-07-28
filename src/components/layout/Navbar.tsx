@@ -34,8 +34,15 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 h-24 flex items-center justify-between">
-        <a href="#" className="text-2xl font-serif tracking-widest font-bold text-foreground">
-          {SITE_DATA.name}
+        <a href="#" className="flex items-center gap-3 group">
+          <img
+            src={SITE_DATA.logo}
+            alt="PANACHE Logo"
+            className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="text-2xl font-serif tracking-widest font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+            {SITE_DATA.name}
+          </span>
         </a>
 
         {/* Desktop Nav */}
