@@ -1,12 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { EVENTS } from "@/config/siteData";
 
 export function Events() {
-  const [hoveredEvent, setHoveredEvent] = useState<number | null>(null);
-
   return (
     <section id="events" className="py-40 bg-background relative border-t border-border/30">
       <div className="container mx-auto px-6 max-w-[1400px]">
@@ -33,44 +30,48 @@ export function Events() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: i * 0.1 }}
-              className="group border-b border-border/30 py-8 md:py-12 relative cursor-pointer"
-              onMouseEnter={() => setHoveredEvent(event.id)}
-              onMouseLeave={() => setHoveredEvent(null)}
+              className="group border-b border-border/30 py-8 md:py-12 relative"
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-                <div className="flex-1">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-10 relative z-10">
+                {/* Left Column: Location & Title */}
+                <div className="flex-1 md:max-w-[320px]">
                   <span className="text-xs text-accent font-sans tracking-[0.2em] uppercase block mb-3 font-medium">
                     {event.location}
                   </span>
-                  <h4 className="text-2xl md:text-4xl font-serif text-foreground/80 group-hover:text-foreground group-hover:translate-x-3 transition-all duration-500">
+                  <h4 className="text-2xl md:text-3xl lg:text-4xl font-serif text-foreground/80 group-hover:text-foreground group-hover:translate-x-2 transition-all duration-500">
                     {event.title}
                   </h4>
                 </div>
-                <div className="flex-1 md:text-right max-w-xl ml-auto opacity-70 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+
+                {/* Center Column: Winner Photo (if present) */}
+                {event.image ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.92, y: 15 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                    className="my-3 md:my-0 flex-shrink-0 self-start md:self-center"
+                  >
+                    <div className="w-36 sm:w-40 md:w-44 lg:w-48 aspect-[3/4] rounded-xl border border-accent/30 shadow-2xl overflow-hidden relative bg-card group/img transition-all duration-500 group-hover:border-accent/60">
+                      <img
+                        src={event.image}
+                        alt={`${event.title} Winner`}
+                        className="w-full h-full object-cover object-top grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
+                    </div>
+                  </motion.div>
+                ) : (
+                  <div className="hidden md:block flex-1" />
+                )}
+
+                {/* Right Column: Event Description */}
+                <div className="flex-1 md:text-right max-w-xl md:ml-auto opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-sans">
                     {event.description}
                   </p>
                 </div>
               </div>
-
-              {/* Hover Image Reveal */}
-              <AnimatePresence>
-                {hoveredEvent === event.id && event.image && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95, clipPath: "inset(100% 0 0 0)" }}
-                    animate={{ opacity: 1, scale: 1, clipPath: "inset(0 0 0 0)" }}
-                    exit={{ opacity: 0, scale: 0.95, clipPath: "inset(0 0 100% 0)" }}
-                    transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-                    className="absolute right-0 md:right-[20%] top-1/2 -translate-y-1/2 w-64 md:w-96 aspect-video z-0 pointer-events-none hidden md:block"
-                  >
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="w-full h-full object-cover grayscale-[0.3]"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </motion.div>
           ))}
         </div>

@@ -13,7 +13,7 @@ export const SITE_DATA = {
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=MIT+Arts+Commerce+and+Science+College+Alandi+Pune",
     coordinator: "+91 00000 00000"
   },
-  registrationUrl: "https://docs.google.com/forms/d/1VqwqJV-9_y0fouGwrKicwkgChO9ClLA8_q9wGCkJn2c/viewform",
+  registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdbxDzUUj5peamp_H44lF6XXiw5G0Sd8NMvzE4GDva_lmt2qA/viewform?utm_source=chatgpt.com",
 };
 
 export const STATS = [
@@ -71,14 +71,14 @@ export const EVENTS = [
     title: "THE STYLE FASHION SYMPHONY",
     location: "Pune",
     description: "Muskan Sharma secured 1st runner up position in solo walk in Pune.",
-    image: ""
+    image: "/events/muskan-sharma.jpg"
   },
   {
     id: 8,
     title: "FOREVER STAR INDIA",
     location: "Jaipur",
     description: "Pratiksha Naskar won the crown of FOREVER MISS MAHARASHTRA 2025 in Jaipur.",
-    image: ""
+    image: "/events/pratiksha-naskar.jpg"
   }
 ];
 
@@ -111,7 +111,7 @@ export const TEAM_MEMBERS = [
     image: "/team/mahi-pandit.png",
     instagram: "https://www.instagram.com/mahi_pandit56/?hl=en"
   },
-  
+
   {
     id: 7,
     name: "Ishwari",
@@ -146,6 +146,17 @@ export const TEAM_MEMBERS = [
     role: "Trainer",
     image: "/team/shraddha.png",
     instagram: "https://www.instagram.com/shrdhaaaaa._201/?hl=en"
+  },
+  {
+    id: 12,
+    name: "Ansh Surve",
+    role: "Member",
+    image: "/team/ansh-surve.jpg",
+    instagram: "https://www.instagram.com/axshh.exe/",
+    imageStyle: {
+      transform: "scale(2.2) translate(6.5%, 6.5%)",
+      transformOrigin: "center center"
+    }
   }
 ];
 
