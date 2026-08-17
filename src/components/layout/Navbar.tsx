@@ -56,14 +56,6 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
-          <a
-            href={SITE_DATA.registrationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2 border border-accent/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 uppercase tracking-widest text-xs"
-          >
-            Join Us
-          </a>
         </nav>
 
         {/* Mobile Nav Toggle */}
@@ -102,14 +94,6 @@ export function Navbar() {
                   {link.name}
                 </a>
               ))}
-              <a
-                href={SITE_DATA.registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 px-8 py-3 bg-accent text-accent-foreground uppercase tracking-widest text-sm font-bold"
-              >
-                Join PANACHE
-              </a>
             </nav>
           </motion.div>
         )}
