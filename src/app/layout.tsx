@@ -29,7 +29,8 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased dark`}
     >
       <head>
-        <link rel="preload" as="image" href="/hero-main.jpg" fetchPriority="high" />
+        <link rel="preload" as="image" href="/hero1.jpg" fetchPriority="high" />
+        <link rel="preload" as="image" href="/hero2.jpg" />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-accent/30 selection:text-accent-foreground">
         <SmoothScroller>

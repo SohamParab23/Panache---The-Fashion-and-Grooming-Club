@@ -6,15 +6,19 @@ import { SITE_DATA } from "@/config/siteData";
 
 const heroImages = [
   {
-    src: "/hero-main.jpg",
+    src: "/hero1.jpg",
     desktopPosition: "center center",
     mobilePosition: "center center",
+  },
+  {
+    src: "/hero2.jpg",
+    desktopPosition: "center center",
+    mobilePosition: "center 30%",
   },
 ];
 
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imgError, setImgError] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -29,7 +33,7 @@ export function Hero() {
     if (heroImages.length > 1) {
       intervalId = window.setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-      }, 6000);
+      }, 5500);
     }
 
     return () => {
@@ -38,42 +42,35 @@ export function Hero() {
     };
   }, []);
 
-  const currentImage = heroImages[currentIndex] || heroImages[0];
-
   return (
     <section className="relative h-screen w-full overflow-hidden select-none">
 
-      {/* ── HIGH-QUALITY ORIGINAL BACKGROUND IMAGE ─────────────────────── */}
+      {/* ── HIGH-QUALITY ORIGINAL BACKGROUND SLIDES (PRELOADED CROSSFADE) ── */}
       <div className="absolute inset-0 z-0">
-        {!imgError && currentImage && (
-          <div className="absolute inset-0 overflow-hidden w-full h-full">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImage.src}
-                src={currentImage.src}
-                alt="PANACHE Fashion & Grooming Club"
-                aria-hidden="true"
-                loading="eager"
-                decoding="sync"
-                fetchPriority="high"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  objectPosition: isMobile
-                    ? currentImage.mobilePosition
-                    : currentImage.desktopPosition,
-                }}
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={() => setImgError(true)}
-              />
-            </AnimatePresence>
-          </div>
-        )}
+        {heroImages.map((img, idx) => (
+          <motion.div
+            key={img.src}
+            initial={false}
+            animate={{ opacity: currentIndex === idx ? 1 : 0 }}
+            transition={{ duration: 1.8, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          >
+            <img
+              src={img.src}
+              alt="PANACHE Fashion & Grooming Club"
+              loading="eager"
+              decoding="sync"
+              fetchPriority={idx === 0 ? "high" : "auto"}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: isMobile ? img.mobilePosition : img.desktopPosition,
+              }}
+              className="w-full h-full object-cover block"
+            />
+          </motion.div>
+        ))}
       </div>
 
       {/* ── SUBTLE OVERLAY FOR READABILITY WITHOUT DEGRADING IMAGE ─────── */}
