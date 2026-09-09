@@ -32,6 +32,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/hero1.jpg" fetchPriority="high" />
         <link rel="preload" as="image" href="/hero2.jpg" />
         <link rel="preload" as="image" href="/hero3.jpg" />
+        <link rel="preload" as="image" href="/hero4.jpg" />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-accent/30 selection:text-accent-foreground">
         <SmoothScroller>
