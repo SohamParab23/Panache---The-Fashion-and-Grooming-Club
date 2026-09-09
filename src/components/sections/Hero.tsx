@@ -18,7 +18,7 @@ const heroImages = [
   {
     src: "/hero3.jpg",
     desktopPosition: "center center",
-    mobilePosition: "54% 38%",
+    mobilePosition: "center 28%",
   },
 ];
 
