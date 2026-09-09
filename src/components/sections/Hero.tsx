@@ -27,8 +27,8 @@ const heroImages = [
   },
   {
     src: "/hero5.jpg",
-    desktopPosition: "center 45%",
-    mobilePosition: "center 40%",
+    desktopPosition: "center 18%",
+    mobilePosition: "center 15%",
   },
 ];
 
