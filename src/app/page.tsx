@@ -8,6 +8,9 @@ import { Gallery } from "@/components/sections/Gallery";
 import { Achievements } from "@/components/sections/Achievements";
 import { Join } from "@/components/sections/Join";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background flex flex-col">
