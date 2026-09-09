@@ -6,12 +6,7 @@ import { SITE_DATA } from "@/config/siteData";
 
 const heroImages = [
   {
-    src: "/hero1.jpg",
-    desktopPosition: "center center",
-    mobilePosition: "center center",
-  },
-  {
-    src: "/hero2.jpg",
+    src: "/hero-main.jpg",
     desktopPosition: "center center",
     mobilePosition: "center center",
   },
