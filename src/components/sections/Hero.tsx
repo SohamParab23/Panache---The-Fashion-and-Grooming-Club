@@ -6,14 +6,14 @@ import { SITE_DATA } from "@/config/siteData";
 
 const heroImages = [
   {
-    src: "/hero1.png",
-    desktopPosition: "center 50%",
-    mobilePosition: "center 40%",
+    src: "/hero1.jpg",
+    desktopPosition: "center center",
+    mobilePosition: "center center",
   },
   {
-    src: "/hero2.png",
-    desktopPosition: "center 50%",
-    mobilePosition: "center 40%",
+    src: "/hero2.jpg",
+    desktopPosition: "center center",
+    mobilePosition: "center center",
   },
 ];
 
@@ -34,7 +34,7 @@ export function Hero() {
     if (heroImages.length > 1) {
       intervalId = window.setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-      }, 5000);
+      }, 6000);
     }
 
     return () => {
@@ -46,44 +46,43 @@ export function Hero() {
   const currentImage = heroImages[currentIndex] || heroImages[0];
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden select-none">
 
-      {/* ── BACKGROUND IMAGES ─────────────────────────────────────────── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
-
+      {/* ── HIGH-QUALITY ORIGINAL BACKGROUND IMAGE ─────────────────────── */}
+      <div className="absolute inset-0 z-0">
         {!imgError && currentImage && (
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden w-full h-full">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentImage.src}
                 src={currentImage.src}
-                alt=""
+                alt="PANACHE Fashion & Grooming Club"
                 aria-hidden="true"
-                initial={{ opacity: 0, scale: 1.0 }}
-                animate={{ opacity: 1, scale: 1.02 }}
-                exit={{ opacity: 0, scale: 1.04 }}
-                transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+                loading="eager"
+                decoding="sync"
+                fetchPriority="high"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
                 style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
                   objectPosition: isMobile
                     ? currentImage.mobilePosition
                     : currentImage.desktopPosition,
                 }}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover"
                 onError={() => setImgError(true)}
               />
             </AnimatePresence>
           </div>
         )}
-      </motion.div>
+      </div>
 
-      {/* ── DARK OVERLAY ────────────────────────────────────────────────── */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+      {/* ── SUBTLE OVERLAY FOR READABILITY WITHOUT DEGRADING IMAGE ─────── */}
+      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-black/25 via-black/10 to-black/35" />
 
       {/* ── CENTERED EDITORIAL TEXT ──────────────────────────────────────── */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 sm:pt-8 md:pt-16 lg:pt-20">
