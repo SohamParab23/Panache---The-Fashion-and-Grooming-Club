@@ -25,6 +25,11 @@ const heroImages = [
     desktopPosition: "center 60%",
     mobilePosition: "center 65%",
   },
+  {
+    src: "/hero5.jpg",
+    desktopPosition: "center 52%",
+    mobilePosition: "center 55%",
+  },
 ];
 
 export function Hero() {
